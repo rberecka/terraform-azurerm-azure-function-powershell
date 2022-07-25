@@ -42,7 +42,6 @@ variable name_suffix {
 variable skip_region_suffix {
   description = "If set and only one region is specified, this module will omit the region specific suffix where appropriate (e.g. myapp-wu2 will just be myapp) and use a single global resource group. Does not work for multiregion deployments because DNS name conflicts will arise. Accessory items like Keyvault will still be regional specific. Changing this variable is destructive to non-global items (e.g. function apps will be rebuilt but Application Insights instance stays the same). Set to false if you plan to grow an app beyond one region in the future and don't want a destructive rebuild"
   type = bool
-  default = true
 }
 
 variable azurerm_function_app_runtime {
@@ -79,5 +78,4 @@ variable azure_active_directory_id {
 variable app_settings {
   description = "A map of app_settings to push to Azure Functions."
   type = map(string)
-  default = {}
 }
