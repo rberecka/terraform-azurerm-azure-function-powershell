@@ -31,6 +31,7 @@ variable tags {
 variable location {
   description = "Defines a list of azure locations to deploy the resource. If multiple locations are specified, the function is deployed to each location. It is recommended to use paired regions https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions and to use the long names of locations so that abbreviations can be created appropriately. Example: [\"us west\",\"us east\"]"
   type = list(string)
+  default = "default_location"
 }
 
 variable name_suffix {
@@ -42,6 +43,7 @@ variable name_suffix {
 variable skip_region_suffix {
   description = "If set and only one region is specified, this module will omit the region specific suffix where appropriate (e.g. myapp-wu2 will just be myapp) and use a single global resource group. Does not work for multiregion deployments because DNS name conflicts will arise. Accessory items like Keyvault will still be regional specific. Changing this variable is destructive to non-global items (e.g. function apps will be rebuilt but Application Insights instance stays the same). Set to false if you plan to grow an app beyond one region in the future and don't want a destructive rebuild"
   type = bool
+  default = false
 }
 
 variable azurerm_function_app_runtime {
@@ -78,4 +80,5 @@ variable azure_active_directory_id {
 variable app_settings {
   description = "A map of app_settings to push to Azure Functions."
   type = map(string)
+  default = {}
 }
