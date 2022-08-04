@@ -1,13 +1,11 @@
 variable name {
   description = "The name of your deployment. This will be used as the resource group name and prefix for all related resources. If not specified, it will use the name of the module as you defined it."
   type = string
-  default = null
 }
 
 variable subscription_id {
   description = "Specify the subscription ID to deploy into. By default this uses your current az subscription"
   type = string
-  default = null
 }
 
 variable tags {
@@ -37,7 +35,6 @@ variable location {
 variable name_suffix {
   description = "An optional suffix for your resources. By default, this is blank if in the default workspace and appends '-workspacename' if in a non-default workspace"
   type = string
-  default = null
 }
 
 variable skip_region_suffix {
